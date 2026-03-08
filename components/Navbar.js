@@ -3,20 +3,22 @@ import styled from 'styled-components';
 import Link from 'next/link'
 import { logOut } from '@/backend/Auth';
 import { useStateContext } from '@/context/StateContext';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { PiDotsThreeVerticalBold } from "react-icons/pi";
+import { LiaDownloadSolid } from "react-icons/lia";
 
-// <Logo onClick={() => logOut(setUser)} href="/">CMPSC 263</Logo>
 const Navbar = () => {
   const { setUser } = useStateContext()
 
   return (
     <Nav>
       <DateHeader>March 2026</DateHeader>  
-      <NavLinks>
-        <NavButton>O</NavButton>
-        <NavButton>:</NavButton>  
-        <NavButton>L</NavButton>
-        <NavButton>R</NavButton>
-      </NavLinks>
+      <div>
+        <NavButton background="#5167f4"><LiaDownloadSolid/></NavButton>
+        <NavButton background="#be9cf3"><PiDotsThreeVerticalBold/></NavButton>  
+        <NavButton background="#27282B"><MdKeyboardArrowLeft/></NavButton>
+        <NavButton background="#27282B"><MdKeyboardArrowRight/></NavButton>
+      </div>
     </Nav>
   );
 };
@@ -31,7 +33,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3.4rem;
+  margin-bottom: 4rem;
 `;
 
 const NavButton = styled.button`
@@ -39,22 +41,27 @@ const NavButton = styled.button`
   border-radius: 100%;
   width: 2.75rem;
   height: 2.75rem;
-  background: black;
+  background: ${props => props.background};
   color: white;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 900;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NavLinks = styled.div`
 
 `;
 
-const ButtonLink = styled(Link)`
-  display: inline-block;
-  border-radius: 100%;
-  width: 2.75rem;
-  height: 2.75rem;
-  background: #DCE1FD;
-  text-align: center;
-  line-height: 2.75
-`;
+// const ButtonLink = styled(Link)`
+//   display: inline-block;
+//   border-radius: 100%;
+//   width: 2.75rem;
+//   height: 2.75rem;
+//   background: #DCE1FD;
+// `;
 
 export default Navbar;

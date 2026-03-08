@@ -22,8 +22,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: sans-serif;
-    padding: 0.8rem 1.3rem;
+    font-family: sans-serif, serif;
+    padding: 0.8rem 1.5rem;
   }
 `
 
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
         <Head>
-          <title>MVP Starter</title>
+          <title>BugList</title>
           <meta name='description' content='Put a description here about your app'/>
           <meta name='robots' content='index, follow'/>
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png"/>
