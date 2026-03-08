@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import Navbar from '@/components/Dashboard/Navbar'
+import Navbar from '@/components/Navbar'
 import { useStateContext } from '@/context/StateContext'
 import { useRouter } from 'next/router'
 
@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 const Dashboard = () => {
 
   const { user } = useStateContext()  
-
+  
   const router = useRouter()
 
 

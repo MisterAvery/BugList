@@ -3,11 +3,27 @@ import { StateContext } from "@/context/StateContext"
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  * 
-  {
+  :root {
+    --pink: #e00052;
+    --cornflower: #5167f4;
+    --lavender: #dde1fb;
+    --black: #000;
+    --yellowish: #fdef5d;
+    --greenish: #22ffa1;
+    --mango: #ffb022;
+    --grey: #c2c2c2;
+    --lilac: #d85dfd;
+  }
+
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    padding: 0.8rem 1.3rem;
   }
 `
 
