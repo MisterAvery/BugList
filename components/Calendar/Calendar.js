@@ -2,18 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Day from '@/components/Calendar/Day';
+import { useStateContext } from '@/context/StateContext'
 
 const Calendar = () => {
+  const { dates, setDates, weekOffset } = useStateContext();
+
   return (
     <DatesWrapper>
-      <Day weekday={"Mon"}></Day>
-      <Day weekday={"Tue"}></Day>
-      <Day weekday={"Wed"}></Day>
-      <Day weekday={"Thu"}></Day>
-      <Day weekday={"Fri"}></Day>
-      <Day weekday={"Sat"}></Day>
-      <Day weekday={"Sun"}></Day>
-      <Day weekday={"Some"}></Day>
+      <Day dateLabel={dates[0]} weekday={"Mon"}></Day>
+      <Day dateLabel={dates[1]} weekday={"Tue"}></Day>
+      <Day dateLabel={dates[2]} weekday={"Wed"}></Day>
+      <Day dateLabel={dates[3]} weekday={"Thu"}></Day>
+      <Day dateLabel={dates[4]} weekday={"Fri"}></Day>
+      <Day dateLabel={dates[5]} weekday={"Sat"}></Day>
+      <Day dateLabel={dates[6]} weekday={"Sun"}></Day>
+      <Day dateLabel={dates[6]} weekday={"Some"}></Day>
     </DatesWrapper>
   );
 };

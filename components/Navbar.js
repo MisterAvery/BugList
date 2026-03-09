@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link'
 import { logOut } from '@/backend/Auth';
@@ -8,16 +8,17 @@ import { PiDotsThreeVerticalBold } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 
 const Navbar = () => {
-  const { setUser } = useStateContext()
-
+  const { setUser, weekOffset, setWeekOffset } = useStateContext()
+  
   return (
     <Nav>
       <DateHeader>March 2026</DateHeader>  
       <div>
         <NavButton background="#5167f4"><LiaDownloadSolid/></NavButton>
         <NavButton background="#be9cf3"><PiDotsThreeVerticalBold/></NavButton>  
-        <NavButton background="#27282B"><MdKeyboardArrowLeft/></NavButton>
-        <NavButton background="#27282B"><MdKeyboardArrowRight/></NavButton>
+        <NavButton background="#27282B" onClick={() => {setWeekOffset(weekOffset - 1)}}><MdKeyboardArrowLeft/></NavButton>
+        <NavButton background="#27282B" onClick={() => {setWeekOffset(weekOffset + 1)}}><MdKeyboardArrowRight/>
+        </NavButton>
       </div>
     </Nav>
   );
@@ -26,6 +27,8 @@ const Navbar = () => {
 
 const DateHeader = styled.h1`
   font-size: 2.25rem;
+
+  &:hover { cursor: pointer; }
 `;
 
 const Nav = styled.nav`
@@ -50,6 +53,8 @@ const NavButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  &:hover { cursor: pointer; }
 `;
 
 const NavLinks = styled.div`

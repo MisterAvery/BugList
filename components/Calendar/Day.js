@@ -2,11 +2,11 @@ import Reeact from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const Day = ({weekday}) => {
+const Day = ({dateLabel, weekday}) => {
   return (
     <div css={{ gridArea: weekday }}>  
       <DayHeader>
-        <h2>4 Mar</h2>
+        <h2>{dateLabel}</h2>
         <h2><span>{weekday}
       </span></h2>
       </DayHeader>

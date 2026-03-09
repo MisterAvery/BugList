@@ -8,7 +8,30 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
 
   // Variables to Carry Across Multiple Pages
-  const [user, setUser] = useState(undefined)
+  const [user, setUser] = useState(undefined);
+  const [weekOffset, setWeekOffset] = useState(0);
+
+  function generateDates() {
+    // Fucntion to get the array of dates for the current week
+    // Each date is represented as an integer
+
+    let days = [];
+    const dateMills = Date.now();
+    const currentDate = new Date(dateMills);
+    const dayOfWeek = currentDate.getDay();
+
+    for (let i = weekOffset * 7; i < weekOffset * 7 + 7; i++) {
+      // Get the current date we are working with
+      const ithDate = new Date(dateMills - (dayOfWeek - i - 1) * 86400000);
+
+      // Add one to accout for th Date API offset
+      days.push(ithDate.getDate() + " " + ithDate.toString().slice(4, 7));
+    }  
+
+    return days;
+  }
+
+  const [dates, setDates] = useState(generateDates());
 
   const router = useRouter()
   const { asPath } = useRouter()
@@ -36,7 +59,11 @@ return(
     <Context.Provider
     value={{
         user,
-        setUser
+        setUser,
+        dates,
+        setDates,
+        weekOffset,
+        setWeekOffset
     }}
     >
       {children}
